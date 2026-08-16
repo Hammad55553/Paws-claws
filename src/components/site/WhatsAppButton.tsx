@@ -24,7 +24,7 @@ export function WhatsAppButton() {
   }, []);
 
   const waNumber = "923256036198";
-  const message = "Hello Paws & Claws Animal Hospital! 🐾 I visited your website and would like to get more information about your services and book an appointment.";
+  const message = "Hello Paws & Claws Animal Hospital! \uD83D\uDC3E I visited your website and would like to get more information about your services and book an appointment.";
   const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`;
 
   return (
