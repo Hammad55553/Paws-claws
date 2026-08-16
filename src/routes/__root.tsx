@@ -15,6 +15,7 @@ import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { MobileActionBar } from "@/components/site/MobileActionBar";
 import { Toaster } from "@/components/ui/sonner";
+import { WhatsAppButton } from "@/components/site/WhatsAppButton";
 
 function NotFoundComponent() {
   return (
@@ -157,6 +158,7 @@ function RootComponent() {
       </main>
       <Footer />
       <MobileActionBar />
+      <WhatsAppButton />
       <Toaster position="top-center" />
     </QueryClientProvider>
   );
