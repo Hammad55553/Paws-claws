@@ -22,17 +22,51 @@ export function AppointmentForm() {
   const [submitting, setSubmitting] = useState(false);
   const [service, setService] = useState("");
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSubmitting(true);
-    window.setTimeout(() => {
-      setSubmitting(false);
-      (e.target as HTMLFormElement).reset();
-      setService("");
-      toast.success("Request noted", {
-        description: "Please call 0325-6036198 to confirm your appointment time.",
+
+    const formData = new FormData(e.currentTarget);
+    const owner = formData.get("owner")?.toString() || "";
+    const phone = formData.get("phone")?.toString() || "";
+    const pet = formData.get("pet")?.toString() || "";
+    const message = formData.get("message")?.toString() || "";
+
+    try {
+      // Using FormSubmit.co for free emails without signup (AJAX mode)
+      const response = await fetch("https://formsubmit.co/ajax/pawsandclawsah199@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          Name: owner,
+          Phone: phone,
+          "Pet Name": pet,
+          Service: service || "Not specified",
+          Message: message,
+          _subject: `New Appointment Request from ${owner}`,
+          _captcha: "false", // Disables the captcha so user stays on site
+        }),
       });
-    }, 700);
+
+      if (response.ok) {
+        toast.success("Request sent successfully!", {
+          description: "We have received your details and will contact you shortly.",
+        });
+        (e.target as HTMLFormElement).reset();
+        setService("");
+      } else {
+        throw new Error("Failed to send");
+      }
+    } catch (error) {
+      toast.error("Something went wrong", {
+        description: "Could not send your request. Please call us instead.",
+      });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
