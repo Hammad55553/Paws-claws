@@ -34,11 +34,11 @@ export function WhatsAppButton() {
       rel="noopener noreferrer"
       aria-label="Chat with us on WhatsApp"
       className={cn(
-        "fixed bottom-6 right-6 z-50 flex size-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-xl transition-all duration-500 hover:-translate-y-2 hover:scale-110 hover:shadow-[#25D366]/50 focus:outline-none focus:ring-4 focus:ring-[#25D366]/50",
+        "fixed right-4 bottom-24 z-50 flex size-12 items-center justify-center rounded-full bg-[#25D366] text-white shadow-xl transition-all duration-500 hover:-translate-y-2 hover:scale-110 hover:shadow-[#25D366]/50 focus:outline-none focus:ring-4 focus:ring-[#25D366]/50 sm:right-6 lg:bottom-6 lg:size-14",
         isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0 pointer-events-none"
       )}
     >
-      <WhatsAppIcon className="size-8" />
+      <WhatsAppIcon className="size-7 lg:size-8" />
       <span className="absolute -top-1 -right-1 flex size-3">
         <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#25D366] opacity-75"></span>
         <span className="relative inline-flex size-3 rounded-full bg-[#25D366]"></span>
