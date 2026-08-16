@@ -16,7 +16,7 @@ import {
 
 export const CLINIC = {
   name: "Paws & Claws Animal Hospital",
-  phone: "0325-6036198",
+  phone: "+92 325 6036198",
   phoneHref: "tel:+923256036198",
   email: "pawsandclawsah199@gmail.com",
   emailHref: "mailto:pawsandclawsah199@gmail.com",
@@ -128,11 +128,11 @@ export const SERVICES: Service[] = [
   },
 ];
 
-export type Doctor = { name: string; credentials: string[] };
+export type Doctor = { name: string; credentials: string[]; phone?: string; phoneHref?: string };
 
 export const DOCTORS: Doctor[] = [
-  { name: "Dr. Haris Rizwan", credentials: ["DVM (LHR)", "RVMP (ISB)"] },
-  { name: "Dr. Abdur Rafay", credentials: ["DVM (LHR)", "RVMP (ISB)"] },
+  { name: "Dr. Haris Rizwan", credentials: ["DVM (LHR)", "RVMP (ISB)"], phone: "+92 309 4305199", phoneHref: "tel:+923094305199" },
+  { name: "Dr. Abdur Rafay", credentials: ["DVM (LHR)", "RVMP (ISB)"], phone: "+92 325 6036198", phoneHref: "tel:+923256036198" },
 ];
 
 export const NAV_LINKS = [

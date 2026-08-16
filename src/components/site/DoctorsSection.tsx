@@ -28,8 +28,8 @@ export function DoctorsSection() {
               Veterinary consultation and treatment for dogs and cats.
             </p>
             <Button asChild variant="heroOutline" size="lg" className="relative mt-6 rounded-full">
-              <a href={CLINIC.phoneHref}>
-                <Phone /> Call to consult
+              <a href={doc.phoneHref || CLINIC.phoneHref}>
+                <Phone /> Call {doc.name.split(" ")[1]}
               </a>
             </Button>
           </article>
